@@ -28,7 +28,7 @@ class AuthController extends Controller
             if (Auth::user()->level === 'admin') {
                 return redirect()->route('AdminIndex');
             } elseif (Auth::user()->level === 'user') {
-                return redirect()->route('');
+                return redirect()->route('UsersIndex');
             }
         }
 
@@ -64,6 +64,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('Index');
+        return redirect()->route('LoginPage');
     }
 }
